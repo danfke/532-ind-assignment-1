@@ -2,6 +2,7 @@ import pandas as pd
 import altair as alt
 from dash import Dash, html, dcc, Input, Output
 
+# Data wrangling
 colony = pd.read_csv(
     "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-01-11/colony.csv",
 )
@@ -13,6 +14,7 @@ colony["time"] = pd.to_datetime(colony["time"])
 colony = colony.drop(["year", "months", "start_month"], axis=1)
 colony["period"] = pd.PeriodIndex(pd.to_datetime(colony["time"]), freq='Q').astype("str")
 
+# Dash app
 app = Dash(__name__)
 
 app.layout = html.Div(
