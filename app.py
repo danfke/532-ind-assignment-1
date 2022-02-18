@@ -16,6 +16,7 @@ colony["period"] = pd.PeriodIndex(pd.to_datetime(colony["time"]), freq='Q').asty
 
 # Dash app
 app = Dash(__name__)
+server = app.server
 
 app.layout = html.Div(
     [
